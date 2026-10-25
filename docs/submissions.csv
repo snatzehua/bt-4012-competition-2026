@@ -1,0 +1,19 @@
+order,date_utc,kaggle_ref,file,approach,train_window,val_auc,public_lb,delta_vs_our_baseline,delta_vs_kaggle_baseline
+1,2026-10-18 11:07,57351645,submission_baseline.csv,LightGBM on 165 raw features,all steps 1-35,0.9966,0.94067,0.00000,0.01948
+2,2026-10-18 16:31,57361473,submission_3b_random_forest.csv,Random Forest on 165 raw features,all steps 1-35,0.9925,0.92120,-0.01947,0.00001
+3,2026-10-18 16:31,57361477,submission_4a_recent_15_steps.csv,LightGBM on 165 raw features,last 15 steps (21-35),0.9967,0.94663,0.00596,0.02544
+4,2026-10-19 01:35,57376829,submission_selftrain_w15_hi0.9_lo0.02.csv,LightGBM + self-training on test (2 rounds; pseudo-label p>=0.9 fraud / p<=0.02 licit; weight 0.5),last 15 steps,0.9977,0.93033,-0.01034,0.00914
+5,2026-10-19 01:35,57376835,submission_window_10.csv,LightGBM on 165 raw features,last 10 steps (26-35),0.9959,0.93204,-0.00863,0.01085
+6,2026-10-19 01:37,57376882,submission_window_20.csv,LightGBM on 165 raw features,last 20 steps (16-35),0.9967,0.94296,0.00229,0.02177
+7,2026-10-20 05:42,57424281,submission_arch_catboost_w15.csv,CatBoost alone (1500 iters; depth 6),last 15 steps (21-35),0.9948,0.94350,0.00283,0.02231
+8,2026-10-20 05:44,57424323,submission_arch_blend_lgb_catboost_w15.csv,Rank-mean blend of LightGBM + CatBoost,last 15 steps (21-35),0.9965,0.94736,0.00669,0.02617
+9,2026-10-20 05:45,57424353,submission_arch_blend_lgb_sage_w15.csv,Rank-mean blend of LightGBM + GraphSAGE (5 seeds),last 15 steps (21-35),0.9922,0.95584,0.01517,0.03465
+10,2026-10-21 05:26,57467447,submission_pblend_lgb_sage_w15.csv,LightGBM + GraphSAGE 1:1 probability average,last 15 steps (21-35),0.9951,0.95507,0.01440,0.03388
+11,2026-10-21 05:26,57467452,submission_wblend_lgb_cat_sage_1_1_2_w15.csv,Rank blend LightGBM:CatBoost:GraphSAGE 1:1:2,last 15 steps (21-35),0.9917,0.95518,0.01451,0.03399
+12,2026-10-21 05:52,57468311,submission_sn_lgb_sage_smooth_a0.3_k3_w15.csv,LightGBM + GraphSAGE 1:1 blend smoothed over graph (alpha 0.3; 3 iters),last 15 steps (21-35),0.9872,0.94175,0.00108,0.02056
+13,2026-10-22 04:02,57508734,submission_gnn_lgb_gat_w15.csv,Rank blend LightGBM + GAT 1:1 (val AUC is fold 1 only),last 15 steps (21-35),0.9971,0.95573,0.01506,0.03454
+14,2026-10-22 04:02,57508751,submission_gnn_lgb_sage10_gat_211_w15.csv,Rank blend LightGBM : GraphSAGE (10 seeds) : GAT 2:1:1 (val AUC is fold 1 only),last 15 steps (21-35),0.9971,0.95627,0.01560,0.03508
+15,2026-10-22 04:15,57509103,submission_gnn_lgb_appnp_w15.csv,Rank blend LightGBM + APPNP 1:1 (self-loops; val AUC is fold 1 only),last 15 steps (21-35),0.9913,0.93173,-0.00894,0.01054
+16,2026-10-23 14:05,57563177,submission_more_lgb5_sage_local_1_1_w15.csv,Rank blend LightGBM (5 seeds) + GraphSAGE on local features 1-93 only 1:1 (val AUC is fold 1 only),last 15 steps (21-35),0.9977,0.95938,0.01871,0.03819
+17,2026-10-23 14:05,57563181,submission_more_lgb5_sage_dann_1_1_w15.csv,Rank blend LightGBM (5 seeds) + domain-adversarial GraphSAGE 1:1 (val AUC is fold 1 only),last 15 steps (21-35),0.9962,0.94863,0.00796,0.02744
+18,2026-10-23 14:05,57563185,submission_final_lgb5_sage10_gat_2_1_1_w15.csv,Rank blend LightGBM (5 seeds) : GraphSAGE (10 seeds) : GAT 2:1:1 (val AUC is fold 1 only),last 15 steps (21-35),0.9971,0.95641,0.01574,0.03522
